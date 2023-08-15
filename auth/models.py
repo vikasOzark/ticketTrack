@@ -39,6 +39,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
+    """
+        This User custom model is used to register the client, we can not use
+        the default user model in this senario.
+    """
+    
     comapny_uid = models.CharField(max_length=30, unique=True, default='')
     company_name = models.CharField(max_length=30, unique=False, null=True, blank=True, default='')
     company_logo = models.ImageField(upload_to="user_image", null=True, blank=True)
